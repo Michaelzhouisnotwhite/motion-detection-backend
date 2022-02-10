@@ -12,6 +12,7 @@ class VideoInfo(models.Model):
     # 单位：MB
     size = models.FloatField(blank=True, default=0)
     duration = models.BigIntegerField(default=0)
+    
     created = models.DateTimeField(null=True)
     falling = models.BooleanField(default=False)
     file_path = models.CharField(max_length=2048, null=True)

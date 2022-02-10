@@ -4,7 +4,7 @@ from video_info import views
 
 urlpatterns = [
     path('video_info/', views.VideoInfoList.as_view()),
-    path('video_info/<int:pk>/', views.VideoInfoDetail.as_view())
+    path('video_info/<int:pk>', views.VideoInfoDetail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
