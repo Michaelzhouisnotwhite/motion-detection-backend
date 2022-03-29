@@ -1,6 +1,9 @@
 #
 .vscode
-
+# *.jpg
+*.pt
+runs
+weights
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
