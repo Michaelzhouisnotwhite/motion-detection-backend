@@ -20,10 +20,12 @@ from django.conf.urls.static import static
 from django.views.static import serve
 from video_info import views
 from dashboard import views
+from video_streamer import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('video_info.urls')),
+    path('', include('video_streamer.urls')),
     # path('v/<str:path>', views.stream_video),
     re_path(r'^v/(?P<path>.*)$', serve, {"document_root": settings.MEDIA_ROOT})
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
