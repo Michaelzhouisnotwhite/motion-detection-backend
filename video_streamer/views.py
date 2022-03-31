@@ -27,13 +27,13 @@ def get_display(cap: cv.VideoCapture):
             ret, frame = cap.read()
             if ret:
                 frame_counter += 1
-                print(IS_DETECTED, CONF)
+                # print(IS_DETECTED, CONF)
                 if IS_DETECTED:
                     objs = obj_model(frame, CONF, 0.5)
 
                     saved_img = obj_model.draw(frame.copy(), objs)
-                    if objs is not None or objs != [] and frame_counter % DURATION == 0:
-                        cv.imwrite(os.path.join(MEDIA_ROOT, 'catched.jpeg'), saved_img)
+                    if objs is not None and objs != [] and frame_counter % int(DURATION) == 0:
+                        cv.imwrite(os.path.join(MEDIA_ROOT, 'catched.png'), saved_img)
                 else:
                     saved_img = frame
                 flag, output = cv.imencode('.jpeg', saved_img)
@@ -46,13 +46,14 @@ def get_display(cap: cv.VideoCapture):
                            b'Content-Type: image/jpeg\r\n\r\n' + output.tobytes() + b'\r\n')
 
 
+
 @api_view(['GET'])
 def catched_picture(request):
     try:
-        image_data = open(os.path.join(MEDIA_ROOT, 'catched.jpeg'), "rb").read()
+        image_data = open(os.path.join(MEDIA_ROOT, 'catched.png'), "rb").read()
     except FileNotFoundError:
         return Response(status=404)
-    return HttpResponse(image_data, content_type="image/jpeg")
+    return HttpResponse(image_data, content_type="image/png")
 
 
 @api_view(['GET', 'POST'])
@@ -90,5 +91,6 @@ def warning_settings(request):
     data = request.data
     CONF = data['filter']
     DURATION = data['duration'],
-
+    if isinstance(DURATION, tuple):
+        DURATION = DURATION[0]
     return Response()

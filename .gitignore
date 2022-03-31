@@ -2,6 +2,7 @@
 .vscode
 # *.jpg
 *.pt
+!best.pt
 runs
 weights
 # Byte-compiled / optimized / DLL files
