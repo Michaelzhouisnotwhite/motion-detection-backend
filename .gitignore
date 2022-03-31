@@ -3,7 +3,7 @@
 # *.jpg
 *.pt
 ./video_streamer/weights/*
-!video_streamer\weights\best.pt
+# !video_streamer\weights\best.pt
 runs
 # Byte-compiled / optimized / DLL files
 __pycache__/
