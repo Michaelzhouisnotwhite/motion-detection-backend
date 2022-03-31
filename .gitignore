@@ -2,9 +2,9 @@
 .vscode
 # *.jpg
 *.pt
+./video_streamer/weights/*
 !video_streamer\weights\best.pt
 runs
-weights
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
