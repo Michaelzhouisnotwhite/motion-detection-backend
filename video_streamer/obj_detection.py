@@ -18,7 +18,6 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-
 class ObjDetection:
     def __init__(self, weights, imgsz=None) -> None:
         if imgsz is None:
