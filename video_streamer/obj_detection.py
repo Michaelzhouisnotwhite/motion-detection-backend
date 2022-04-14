@@ -3,7 +3,7 @@ from .utils.augmentations import letterbox
 from .models.experimental import attempt_load
 import cv2 as cv
 from .utils.general import (check_img_size,
-                           non_max_suppression, set_logging)
+                            non_max_suppression, set_logging)
 import argparse
 import os
 import sys
@@ -17,6 +17,7 @@ ROOT = FILE.parents[0]  # YOLOv5 root directory
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 
 class ObjDetection:
     def __init__(self, weights, imgsz=None) -> None:
