@@ -70,7 +70,7 @@ def get_capture():
     while True:
         if os.path.exists(caught_pic_path):
             if MESSAGE_SENT == 0:
-                send_warning_message()
+                # send_warning_message()
                 MESSAGE_SENT = 1
             caught_pic = cv.imread(caught_pic_path)
             flag, output = cv.imencode('.jpeg', caught_pic)

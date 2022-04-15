@@ -7,4 +7,4 @@ urlpatterns = [
     path('video_info/<int:pk>', views.VideoInfoDetail.as_view())
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+# urlpatterns = format_suffix_patterns(urlpatterns, suffix_required=False)
